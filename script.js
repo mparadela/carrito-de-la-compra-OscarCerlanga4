@@ -42,7 +42,9 @@ function renderizarCarrito(){
         eliminar.textContent="eliminar";
         li.append(`ID: ${p.id} || Nombre: ${p.nombre} || Precio: ${p.precio} `);
         li.appendChild(eliminar);
-        eliminar.addEventListener("click",e=>{
+        eliminar.addEventListener("click",e=>{  
+            let seguro = confirm("¿Estas seguro de querer borrar el dato de la lista?");
+            if (!seguro) return;
             productos = productos.filter(item=> item.id !== p.id);
             guardarCarrito();
             renderizarCarrito();
